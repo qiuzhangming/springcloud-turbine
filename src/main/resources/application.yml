@@ -1,0 +1,21 @@
+server:
+  port: 20001
+
+spring:
+  application:
+    name: turbine
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://streetlamp.beta.zzwtt.cn:8000/eureka/
+  instance:
+    instance-id: turbine:20001
+    prefer-ip-address: true
+
+turbine:
+  app-config: streetlamp-info,streetlamp-nbserver,streetlamp-nbserver-prod
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+  combine-host-port: true
